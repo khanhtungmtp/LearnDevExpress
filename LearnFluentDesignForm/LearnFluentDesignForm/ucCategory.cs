@@ -30,13 +30,8 @@ namespace LearnFluentDesignForm
 
         private void ucCategory_Load(object sender, EventArgs e)
         {
-            var categories = new List<Category>
-            {
-                new Category { CategoryID = 1, CategoryName = "Thực phẩm" },
-                new Category { CategoryID = 2, CategoryName = "Đồ uống" },
-                new Category { CategoryID = 3, CategoryName = "Đồ dùng văn phòng" }
-            };
-            gridControl2.DataSource = categories;
+            NORTHWNDEntities2 db = new NORTHWNDEntities2();
+            gridControl2.DataSource = db.Categories.ToList();
         }
     }
 }
