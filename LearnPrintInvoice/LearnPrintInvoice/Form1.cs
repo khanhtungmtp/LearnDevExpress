@@ -1,19 +1,15 @@
 ﻿using Dapper;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LearnPrintInvoice
 {
-    public partial class Form1 : Form
+    public partial class Form1 : XtraForm
     {
         public Form1()
         {
@@ -22,7 +18,25 @@ namespace LearnPrintInvoice
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+            Orders obj = ordersBindingSource.Current as Orders;
+            if (obj != null)
+            {
+                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cn"].ConnectionString))
+                {
+                    if (db.State == ConnectionState.Closed)
+                        db.Open();
+                    string query = "select d.OrderID, p.ProductName, d.Quantity, d.Discount, d.UnitPrice from [Order Details] d " +
+                        "inner join Products p on d.ProductID = p.ProductID" +
+                                    $" where d.OrderID = '{obj.OrderId}'";
+                    List<OrdersDetail> list = db.Query<OrdersDetail>(query, commandType: CommandType.Text).ToList();
+                    // Open print form dialog
+                    using (frmPrint frm = new frmPrint())
+                    {
+                        frm.PrintInvoice(obj, list);
+                        frm.ShowDialog();
+                    }
+                }
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
