@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnGridControl", "LearnGridControl\LearnGridControl.csproj", "{733F7A27-A826-4526-8B00-F42DD7F38728}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{733F7A27-A826-4526-8B00-F42DD7F38728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733F7A27-A826-4526-8B00-F42DD7F38728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733F7A27-A826-4526-8B00-F42DD7F38728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733F7A27-A826-4526-8B00-F42DD7F38728}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAF2AD4E-9E76-4440-9AF3-33680031CAD3}
+	EndGlobalSection
+EndGlobal
